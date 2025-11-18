@@ -12,7 +12,7 @@
     "element-plus": "^2.11.8",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
-    "vue-tree-structure": "^0.0.1"
+    "vue-tree-structure": "^0.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
