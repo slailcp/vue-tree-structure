@@ -1,23 +1,5 @@
 # 说明
 
-## 插件打包
-运行npm run lib 会打包插件，到 /packages/dist以及/public/dist下,另外，为了demo能正常运行，将/src/api文件复制一份到public下。
-
-```js
-npm run lib
-```
-
-## 运行示例
-
-```
-运行vue项目示例：  npm run serve 
-运行public下的demo  http://localhost:8080/demo1.html  
-```
-
-
-## packages说明
-/packages下是插件源码，/packages/index.js是插件入口文件
-/packages/dist是打包后的文件，/dist/index.js是打包后插件入口文件，
 
 ## public/demo.html
 cdn项目使用功的demo示例，
