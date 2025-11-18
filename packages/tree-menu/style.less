@@ -1,0 +1,252 @@
+@import '../variables.less';
+
+// 动画定义
+@keyframes te-rotate {
+  0% {
+    transform: rotateZ(0);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes te-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes te-slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.te-tree {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--te-tree-color-bg);
+  border-radius: var(--te-tree-border-radius);
+  overflow: hidden;
+
+  &-search-box {
+    height: var(--te-tree-search-box-height);
+    display: flex;
+    border:1px solid var(--te-tree-search-box-border-color);
+  }
+
+  &-search-input {
+    border: 0;
+    height: calc(var(--te-tree-search-box-height) - 2px);
+    flex: 1;
+    outline: 0;
+  }
+
+  &-search-icon {
+    width: var(--te-tree-search-box-height);
+    height: var(--te-tree-search-box-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-search-close-icon {
+    width: var(--te-tree-search-box-height);
+    height: var(--te-tree-search-box-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+
+  &-list {
+    flex: 1;
+    overflow: auto;
+  }
+
+  // 树节点
+  &-node {
+    margin: var(--te-node-margin-base) 0;
+    min-width: 200px;
+  }
+
+
+  // 节点内容
+  &-node-content {
+    display: flex;
+    align-items: center;
+    padding: var(--te-node-padding-base);
+    border-radius: var(--te-node-border-radius);
+    cursor: default;
+    position: relative;
+    transition: all var(--te-transition-duration) var(--te-transition-function);
+    // margin: var(--te-node-content-margin) 0;
+    border-left: 3px solid transparent;
+
+    &:hover {
+      // background-color: fade(var(--te-color-hover, 50%));
+    }
+
+    &.te-selectable {
+      cursor: pointer;
+    }
+
+    &.te-selected {
+      background-color: var(--te-node-selected-bg-color);
+      color: var(--te-node-selected-color);
+      border-left: 3px solid var(--te-color-primary);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+      .te-tree-node-icon,
+      .te-tree-expand-icon,
+      .te-tree-node-name {
+        color: var(--te-color-primary);
+        font-weight: 500;
+      }
+    }
+  }
+
+  // 展开图标
+  &-expand-icon {
+    width: var(--te-tree-expand-icon-width);
+    height: var(--te-tree-expand-icon-width);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--te-expand-color-icon);
+    font-size: var(--te-tree-expand-icon-size);
+    border-radius: 50%;
+    transition: all 0.2s ease;
+
+    &:hover {
+      // background-color: fade(var(--te-color-primary, 10%));
+      color: var(--te-color-primary);
+      transform: scale(1.1);
+    }
+  }
+
+  &-expand-placeholder {
+    width: var(--te-tree-expand-icon-width);
+  }
+
+  // 节点图标
+  &-node-icon {
+    margin: 0 2px;
+    color: var(--te-node-color-icon);
+    font-size: var(--te-node-icon-size);
+  }
+
+  // 节点名称
+  &-node-name {
+    color: var(--te-color-text-primary);
+    font-size: var(--te-font-size-base);
+    margin-left: var(--te-padding-base);
+  }
+
+  // 子节点容器
+  &-child-nodes {
+    margin-left: var(--te-tree-indent);
+  }
+
+  // 加载中和空节点
+  &-loading-node {
+    //  padding: (var(--te-padding-base) + 2px) var(--te-padding-base) (var(--te-padding-base) + 2px) (var(--te-tree-icon-width) + var(--te-padding-base));
+
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    color: var(--te-load-node-color);
+    font-size: var(--te-load-node-font-size);
+  }
+
+  &-empty-data {
+    color: var(--te-empty-data-color);
+    font-size: var(--te-empty-data-font-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-top: 10px
+  }
+  &-empty-node{
+    color: var(--te-empty-node-color);
+    font-size: var(--te-empty-node-font-size);
+    height: 100%;
+    padding: var(--te-empty-node-padidng);
+  }
+
+  // 加载更多
+  &-load-more {
+    padding: var(--te-load-more-padding) 0;
+    text-align: center;
+    background: var(--te-load-more-bg-color);
+    color: var(--te-load-more-color);
+    font-size: var(--te-load-more-font-size);
+    cursor: pointer;
+    transition: all var(--te-transition-duration) var(--te-transition-function);
+    border-radius: var(--te-load-more-border-radius);
+    margin: var(--te-load-more-margin) 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .icon-loading {
+      font-size: var(--te-load-more-icon-size);
+      vertical-align: baseline;
+      animation: te-fade-in 0.3s ease;
+    }
+    .icon-a-xiangxialunkuohua{
+      font-size: 12px;
+      vertical-align: baseline;
+    }
+  }
+
+  // 动画加载
+  &-animation-loading {
+    animation: te-rotate 2s linear infinite;
+    display: inline-block;
+    transform-origin: center;
+    margin: 0;
+    vertical-align:middle;
+  }
+
+
+
+  // // 选中图标
+  // &-icon-checked {
+  //   display: none;
+  //   color: var(--te-color-primary);
+  //   margin-left: auto;
+
+  //   .te-selected & {
+  //     display: inline-block;
+  //   }
+  // }
+}
+
+// 根节点特殊样式
+.te-tree-root {
+  .te-tree-child-nodes {
+    margin-left: 0;
+  }
+}

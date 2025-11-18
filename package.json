@@ -1,0 +1,42 @@
+{
+  "name": "vue-tree-structure",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lib": "npm run lib1 && npm run lib2",
+    "lib1": "vue-cli-service build --target lib --name  vueTreeStructure --dest packages/dist  packages/index.js",
+    "lib2": "vue-cli-service build --target lib --name vueTreeStructure --dest public/dist packages/index.js",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^3.8.3",
+    "element-plus": "^2.11.8",
+    "vue": "^3.2.13",
+    "vue-router": "^4.0.3",
+    "vue-tree-structure": "^0.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/eslint-parser": "^7.12.16",
+    "@babel/plugin-transform-react-jsx": "^7.22.15",
+    "@babel/preset-env": "^7.23.2",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "child_process": "^1.0.2",
+    "copy-webpack-plugin": "^11.0.0",
+    "del": "^6.0.0",
+    "esprima": "^4.0.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-exec": "^5.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-less": "^5.0.0",
+    "gulp-shell": "^0.8.0",
+    "gulp-uglify": "^3.0.2",
+    "less": "^4.0.0",
+    "less-loader": "^8.0.0"
+  }
+}
