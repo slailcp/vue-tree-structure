@@ -87,10 +87,14 @@ import { treeMenu,treeSelector } from 'vue-tree-structure';
 
 ## 案例地址
 
+### Menu
 [Menu](https://slailcp.github.io/vue-tree-structure/index.html#/Menu)
-[MenuDialog](https://slailcp.github.io/vue-tree-structure/index.html#/MenuDialog)
-[DepartMentSelector](https://slailcp.github.io/vue-tree-structure/index.html#/DepartMentSelector)
 
+### MenuDialog
+[MenuDialog](https://slailcp.github.io/vue-tree-structure/index.html#/MenuDialog)
+
+### DepartMentSelector
+[DepartMentSelector](https://slailcp.github.io/vue-tree-structure/index.html#/DepartMentSelector)
 ![案例样式1](https://slailcp.github.io/vue-tree-structure/cdnimages/1.png)
 
 ![案例样式2](https://slailcp.github.io/vue-tree-structure/cdnimages/2.png)
